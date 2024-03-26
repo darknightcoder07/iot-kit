@@ -1,0 +1,48 @@
+1.ADDITION
+#include<reg51.h>
+void main(void)
+{
+unsigned char x,y,z;
+x=0x12;
+y=0x34;
+P0=0x00;
+z=x+y;
+P0=z;
+}
+//////////////////////////////////////////////
+2.SUBTRACTION
+#include<reg51.h>
+void main(void)
+{
+unsigned char a,b,c;
+a=0x12;
+b=0x34;
+P1=0x00;
+c=b-a;
+P1=c;
+}
+/////////////////////////////////////////
+3.MULTIPLICATION
+#include<reg51.h>
+void main(void)
+{
+unsigned char d,e,f;
+d=0x12;
+e=0x34;
+P2=0x00;
+f=e*d;
+P2=f;
+}
+//////////////////////////////////////////////
+4.DIVISION
+#include<reg51.h>
+void main(void)
+{
+unsigned char p,q,r;
+p=0x12;
+q=0x34;
+P3=0x00;
+r=q/p;
+P3=r;
+While(1);
+}
