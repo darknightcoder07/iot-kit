@@ -1,0 +1,20 @@
+#include <SoftwareSerial.h> #define LED_pin 13
+SoftwareSerial bluetooth(2, 3); 
+char charArray[10]; void setup() {
+Serial.begin(9600);
+}
+void loop() {
+char receivedChar = bluetooth.read(); 
+Serial.println(receivedChar);
+digitalWrite(LED_pin, HIGH); Serial.print("LED_ON");
+}
+else if(receivedChar == '0')
+{
+digitalWrite(LED_pin, LOW); Serial.print("LED_OFF");
+}
+else if(receivedChar == '2'){
+dtostrf(data, 6, 2, charArray);
+delay(100);
+}
+}
+}
