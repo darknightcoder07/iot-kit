@@ -1,0 +1,19 @@
+#include <reg51.h>
+
+void main(void) {
+    unsigned char num1 = 0x25;  // First number (e.g., 25H)
+    unsigned char num2 = 0x30;  // Second number (e.g., 30H)
+    unsigned char flag;
+
+    if (num1 > num2) {
+        flag = 1;  // Set flag to 1 if num1 is greater than num2
+    } else if (num1 < num2) {
+        flag = 2;  // Set flag to 2 if num1 is less than num2
+    } else {
+        flag = 0;  // Set flag to 0 if num1 is equal to num2
+    }
+
+    while (1) {
+        // Infinite loop to keep the program running
+    }
+}
