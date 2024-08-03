@@ -2,12 +2,6 @@ int led=13; void setup()
 {
 pinMode(led, OUTPUT);
 Serial.begin(9600); //default baud rate for bt 38400
-Ex
-No: 09
-Communicate
-between Arduino and Raspberry PI
-using any wireless medium.
-Date:
 }
 void loop()
 {
