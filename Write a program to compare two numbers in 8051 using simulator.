@@ -1,0 +1,26 @@
+; Program to compare two numbers in 8051 and set a flag
+
+ORG 0H      ; Origin, start of the program
+
+MOV A, #25H ; Load the first number (e.g., 25H) into accumulator A
+MOV B, #30H ; Load the second number (e.g., 30H) into register B
+
+; Compare A with B
+CJNE A, B, NOT_EQUAL ; Compare A and B, if they are not equal, jump to NOT_EQUAL
+
+; If A is equal to B
+MOV C, #00H ; Set flag (e.g., C) to 0 to indicate A is equal to B
+SJMP END    ; Jump to end
+
+NOT_EQUAL:
+JB ACC.7, LESS_THAN ; If A is less than B, jump to LESS_THAN
+MOV C, #01H         ; Set flag to 1 to indicate A is greater than B
+SJMP END            ; Jump to end
+
+LESS_THAN:
+MOV C, #02H         ; Set flag to 2 to indicate A is less than B
+
+END:
+NOP                 ; No operation, end of program
+
+END                 ; End of the program
