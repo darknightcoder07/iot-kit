@@ -1,0 +1,67 @@
+import machine 
+
+import utime 
+
+import urequests 
+
+import network
+
+IR_SENSOR_PIN = 2 # GPIO pin for the IR sensor 
+
+API_KEY = "BYRGZSN129A5E7P9"
+
+THINGSPEAK_URL = "https://api.thingspeak.com/update?api_key={}".format(API_KEY) 
+
+WIFI_SSID = "SHRUTI L G"
+
+WIFI_PASSWORD = "12345678"
+
+ir_sensor = machine.Pin(IR_SENSOR_PIN, machine.Pin.IN) 
+
+wlan = network.WLAN(network.STA_IF)
+
+def connect_to_wifi(): 
+
+wlan.active(True)
+
+if not wlan.isconnected(): 
+
+print("Connecting to WiFi...")
+
+wlan.connect(WIFI_SSID, WIFI_PASSWORD) 
+
+while not wlan.isconnected():
+
+pass
+
+print("Connected to WiFi")
+
+def read_ir_sensor(): 
+
+return ir_sensor.value()
+
+defsend_to_thingspeak(data): 
+
+# Send data to ThingSpeak
+
+url = "{}&field1={}".format(THINGSPEAK_URL, data) 
+
+response = urequests.get(url)
+
+print("ThingSpeak response:", response.text)
+
+# Connect to WiFi 
+
+connect_to_wifi()
+
+while True:
+
+ir_data = read_ir_sensor() 
+
+print("IR Sensor Data:", ir_data)
+
+# Send data to ThingSpeak via HTTP 
+
+send_to_thingspeak(ir_data)
+
+utime.sleep(15) # Wait for 15 seconds before the next reading
